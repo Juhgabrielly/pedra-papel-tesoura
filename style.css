@@ -1,0 +1,674 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#050505;
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:white;
+
+    font-family:'Poppins', sans-serif;
+}
+
+/* FUNDO */
+
+.background{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    background:
+    radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 40%);
+
+    z-index:-1;
+}
+
+/* TOPO */
+
+.topo{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:auto;
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    border:2px solid #151515;
+
+    background:#0c0c0c;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topo h1{
+
+    font-size:60px;
+
+    font-family:'Orbitron', sans-serif;
+
+    letter-spacing:6px;
+
+    background:linear-gradient(to right,#ffffff,#666);
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.topo p{
+
+    color:#777;
+
+    letter-spacing:7px;
+}
+
+/* PLACAR */
+
+.placar{
+
+    width:180px;
+    height:150px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    border:2px solid #222;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.placar span{
+
+    color:#777;
+
+    letter-spacing:4px;
+}
+
+#score{
+
+    font-size:70px;
+
+    font-family:'Orbitron', sans-serif;
+}
+
+/* ARENA */
+
+.arena{
+
+    position:relative;
+
+    width:100%;
+    max-width:1200px;
+
+    height:850px;
+
+    margin:auto;
+}
+
+/* CONTAINER */
+
+.container{
+
+    position:absolute;
+
+    text-align:center;
+}
+
+.container p{
+
+    margin-top:15px;
+
+    font-family:'Orbitron', sans-serif;
+
+    letter-spacing:5px;
+}
+
+/* BOLAS */
+
+.elemento{
+
+    width:200px;
+    height:200px;
+
+    border-radius:50%;
+
+    border:7px solid;
+
+    background:#111;
+
+    position:relative;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    animation:flutuar 3s ease-in-out infinite;
+}
+
+.elemento:hover{
+
+    transform:scale(1.08);
+}
+
+.elemento img{
+
+    width:205px;
+
+    position:relative;
+
+    z-index:2;
+
+    transition:0.4s;
+}
+
+.elemento:hover img{
+
+    transform:rotate(8deg) scale(1.15);
+}
+
+/* AURA */
+
+.aura{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    filter:blur(25px);
+
+    opacity:0.6;
+
+    animation:pulse 2s infinite;
+}
+
+/* POSIÇÕES */
+
+.fogo-pos{
+
+    top:30px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.agua-pos{
+
+    top:270px;
+    right:120px;
+}
+
+.planta-pos{
+
+    bottom:60px;
+    right:240px;
+}
+
+.raio-pos{
+
+    bottom:60px;
+    left:240px;
+}
+
+.terra-pos{
+
+    top:270px;
+    left:120px;
+}
+
+/* CORES */
+
+.fogo{
+
+    border-color:#ff4d00;
+
+    box-shadow:
+    0 0 20px #ff4d00,
+    0 0 70px rgba(255,77,0,0.7);
+}
+
+.fogo-aura{
+
+    background:#ff4d00;
+}
+
+.agua{
+
+    border-color:#00aeff;
+
+    box-shadow:
+    0 0 20px #00aeff,
+    0 0 70px rgba(0,174,255,0.7);
+}
+
+.agua-aura{
+
+    background:#00aeff;
+}
+
+.planta{
+
+    border-color:#00ff66;
+
+    box-shadow:
+    0 0 20px #00ff66,
+    0 0 70px rgba(0,255,102,0.7);
+}
+
+.planta-aura{
+
+    background:#00ff66;
+}
+
+.raio{
+
+    border-color:#ffe600;
+
+    box-shadow:
+    0 0 20px #ffe600,
+    0 0 70px rgba(255,230,0,0.7);
+}
+
+.raio-aura{
+
+    background:#ffe600;
+}
+
+.terra{
+
+    border-color:#9b5d2e;
+
+    box-shadow:
+    0 0 20px #9b5d2e,
+    0 0 70px rgba(155,93,46,0.7);
+}
+
+.terra-aura{
+
+    background:#9b5d2e;
+}
+
+/* RESULTADO */
+
+.resultado-area{
+
+    display:none;
+
+    width:100%;
+    max-width:1300px;
+
+    margin:auto;
+    margin-top:60px;
+
+    justify-content:space-around;
+    align-items:center;
+
+    text-align:center;
+}
+
+.lado h2{
+
+    margin-bottom:30px;
+
+    font-family:'Orbitron', sans-serif;
+
+    letter-spacing:5px;
+}
+
+.meio{
+
+    width:450px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+#resultado{
+
+    font-size:50px;
+
+    margin-top:20px;
+
+    font-family:'Orbitron', sans-serif;
+
+    line-height:1.4;
+}
+
+#mensagem{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    color:#bbb;
+}
+
+.efeito-batalha{
+
+    font-size:90px;
+
+    animation:efeito 1s infinite alternate;
+}
+
+.meio button{
+
+    margin-top:30px;
+
+    width:260px;
+    height:60px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-family:'Orbitron', sans-serif;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+
+    color:#000;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+}
+
+.meio button:hover{
+
+    transform:scale(1.05);
+}
+
+/* BOTÃO REGRAS */
+
+.regras-button{
+
+    position:fixed;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:180px;
+    height:55px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#111;
+
+    color:white;
+
+    font-family:'Orbitron', sans-serif;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    border:2px solid #222;
+
+    z-index:50;
+}
+
+.regras-button:hover{
+
+    transform:translateX(-50%) scale(1.05);
+
+    background:#1a1a1a;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.15);
+}
+
+/* REGRAS */
+
+.regras{
+
+    display:none;
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:550px;
+
+    padding:30px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    border:2px solid #222;
+
+    z-index:100;
+
+    box-shadow:0 0 2000px rgba(0,0,0,0.9);
+
+    flex-direction:column;
+}
+
+.regras-topo{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:25px;
+}
+
+.regras-topo h2{
+
+    font-family:'Orbitron', sans-serif;
+}
+
+.regras-topo button{
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+.regras li{
+
+    list-style:none;
+
+    margin-bottom:14px;
+
+    color:#ccc;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(0.9);
+        opacity:0.4;
+    }
+
+    100%{
+
+        transform:scale(1.1);
+        opacity:0.8;
+    }
+}
+
+@keyframes flutuar{
+
+    0%{
+
+        transform:translateY(0px);
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+    }
+
+    100%{
+
+        transform:translateY(0px);
+    }
+}
+
+@keyframes efeito{
+
+    from{
+
+        transform:scale(1);
+    }
+
+    to{
+
+        transform:scale(1.12);
+    }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1100px){
+
+    .arena{
+
+        height:1200px;
+    }
+}
+
+/* ===================================
+   EFEITO DE VITÓRIA
+=================================== */
+
+.vencedor{
+
+    animation: brilhoVitoria 1.2s infinite;
+
+    transform:scale(1.15);
+
+    z-index:10;
+}
+
+/* ÁGUA */
+
+.agua.vencedor{
+
+    box-shadow:
+    0 0 30px #00bfff,
+    0 0 60px #00bfff,
+    0 0 120px #00bfff,
+    0 0 200px #00bfff;
+}
+
+/* FOGO */
+
+.fogo.vencedor{
+
+    box-shadow:
+    0 0 30px #ff4500,
+    0 0 60px #ff4500,
+    0 0 120px #ff4500,
+    0 0 200px #ff4500;
+}
+
+/* PLANTA */
+
+.planta.vencedor{
+
+    box-shadow:
+    0 0 30px #32cd32,
+    0 0 60px #32cd32,
+    0 0 120px #32cd32,
+    0 0 200px #32cd32;
+}
+
+/* RAIO */
+
+.raio.vencedor{
+
+    box-shadow:
+    0 0 30px #ffd700,
+    0 0 60px #ffd700,
+    0 0 120px #ffd700,
+    0 0 200px #ffd700;
+}
+
+/* TERRA */
+
+.terra.vencedor{
+
+    box-shadow:
+    0 0 30px #8b4513,
+    0 0 60px #8b4513,
+    0 0 120px #8b4513,
+    0 0 200px #8b4513;
+}
+
+@keyframes brilhoVitoria{
+
+    0%{
+
+        transform:scale(1);
+
+        filter:brightness(1);
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+        filter:brightness(1.6);
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        filter:brightness(1);
+    }
+}

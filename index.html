@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Battle Arena</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    <header class="topo">
+        <div>
+            <h1>ELEMENTOS</h1>
+            <p>ARENA ELEMENTAL</p>
+        </div>
+        <div class="placar">
+            <span>PONTOS</span>
+            <h2 class="pontuacao">0</h2>
+        </div>
+    </header>
+    <main class="arena jogo">
+        <div class="container agua-pos">
+            <button class="elemento agua" value="agua" onclick="jogar(agua)">
+                <div class="aura agua-aura"></div>
+                <img src="./images/icon-agua.png">
+            </button>
+            <p>ÁGUA</p>
+        </div>
+        <div class="container fogo-pos">
+            <button class="elemento fogo" value="fogo" onclick="jogar(fogo)">
+                <div class="aura fogo-aura"></div>
+                <img src="./images/icon-fogo.png">
+            </button>
+            <p>FOGO</p>
+        </div>
+        <div class="container planta-pos">
+            <button class="elemento planta" value="planta" onclick="jogar(planta)">
+                <div class="aura planta-aura"></div>
+                <img src="./images/icon-planta.png">
+            </button>
+            <p>PLANTA</p>
+        </div>
+        <div class="container raio-pos">
+            <button class="elemento raio" value="raio" onclick="jogar(raio)">
+                <div class="aura raio-aura"></div>
+                <img src="./images/icon-raio.png">
+            </button>
+            <p>RAIO</p>
+        </div>
+        <div class="container terra-pos">
+            <button class="elemento terra" value="terra" onclick="jogar(terra)">
+                <div class="aura terra-aura"></div>
+                <img src="./images/icon-terra.png">
+            </button>
+            <p>TERRA</p>
+        </div>
+    </main>
+    <section class="resultado-area gameplay">
+        <div class="lado">
+            <h2>VOCÊ</h2>
+            <div class="teste"></div>
+        </div>
+        <div class="meio">
+            <div id="efeito"></div>
+            <div class="efeito-batalha"></div>
+            <h1 class="result"></h1>
+            <p id="mensagem"></p>
+            <div class="fim">
+                <button onclick="reset()">
+                    JOGAR NOVAMENTE
+                </button>
+            </div>
+        </div>
+            <div class="lado">
+            <h2>Computador</h2>
+            <div class="teste1"></div>
+        </div>
+    </section>
+    <button class="regras-button" onclick="mostraregras()">
+        REGRAS
+    </button>
+    <div class="regras">
+        <div class="regras-topo">
+            <h2>REGRAS</h2>
+            <button onclick="fecharregras()">✕</button>
+        </div>
+        <ul>
+            <li> Água apaga Fogo</li>
+            <li>Planta absorve Água</li>
+            <li>Fogo queima Planta</li>
+            <li>Terra bloqueia Raio</li>
+            <li>Raio eletrifica Água</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
